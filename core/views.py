@@ -5,3 +5,6 @@ from .models import Job
 def home(request):
     jobs = Job.objects.all()
     return render(request, "index.html", {"jobs":jobs})
+
+def create_job(request):
+    return render(request, "addform.html")

@@ -24,11 +24,11 @@
                 <span class="material-icons-outlined text-indigo-600">work</span>
                 LakshyaIn
             </span>
-            <button id="addJobBtn"
+            <a href="/add" id="addJobBtn"
                 class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5">
                 <span class="material-icons-outlined text-sm leading-none">add</span>
                 Add Job
-            </button>
+            </a>
         </div>
     </header>
 
@@ -43,8 +43,8 @@
             {% for job in jobs %}
             <div
                 class="job-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-md p-5 flex flex-col gap-3">
-                <div class="flex items-start justify-between gap-2">
-                    <div class="flex items-start justify-between gap-2">
+                <div class="flex flex-col items-start justify-between gap-2">
+                    <div class="w-full flex items-center justify-between gap-2">
                         <div>
                             <h3 class="font-semibold text-slate-900">{{ job.title }}</h3>
                             <p class="text-sm text-slate-500"> {{ job.company }}</p>
@@ -55,7 +55,10 @@
                             Hiring
                         </span>
                     </div>
+                    <p class="text-sm">
+                        {{job.description}}
 
+                    </p>
                     <div class="flex items-center gap-4 text-sm text-slate-500">
                         <span class="flex items-center gap-1">
                             <span class="material-icons-outlined text-base">location_on</span>
