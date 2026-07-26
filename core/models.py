@@ -7,6 +7,7 @@ class Job(models.Model):
     company_name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
     salary = models.IntegerField()
+    logo = models.ImageField(upload_to="logo")
 
     def __str__(self):
         return f"{self.company_name} - {self.title}"
