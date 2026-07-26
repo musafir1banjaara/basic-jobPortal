@@ -15,6 +15,7 @@ def create_job(request):
             company_name=request.POST.get("company_name"),
             location=request.POST.get("location"),
             salary=request.POST.get("salary"),
+            logo=request.FILES.get("logo"),
         )
         return redirect("/")
     return render(request, "addform.html")
