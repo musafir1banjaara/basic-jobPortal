@@ -9,6 +9,6 @@ class Job(models.Model):
     salary = models.IntegerField()
 
     def __str__(self):
-        return f"{self.company_name} {self.title}"
+        return f"{self.company_name} - {self.title}"
     # return self.title + ":" + self.company_name
 
