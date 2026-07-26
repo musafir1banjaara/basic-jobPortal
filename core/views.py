@@ -19,3 +19,10 @@ def create_job(request):
         )
         return redirect("/")
     return render(request, "addform.html")
+
+
+def delete_job(request, id):
+    if request.method == "POST":
+        job = Job.objects.get(id=id)
+        job.delete()
+    return redirect('/')

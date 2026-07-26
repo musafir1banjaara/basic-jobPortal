@@ -29,7 +29,7 @@
         </div>
     </header>
     <main class="px-12 my-12 pb-12">
-        <form action="{% url 'create_job' %}" method="post" enctype="multipart/form-data" class="space-y-4">
+        <form action="{% url 'create-job' %}" method="post" enctype="multipart/form-data" class="space-y-4">
             {% csrf_token %}
             <div class="space-x-4">
                 <label for="title">Title</label>
@@ -53,7 +53,8 @@
             </div>
             <div class="space-x-4">
                 <label for="logo">Logo</label>
-                <input type="file" id="logo" name="logo" class="file-input" />
+                <input type="file" accept=".png" id="logo" name="logo" class="file-input" />
+                <!-- accept restricts what extension of file is allowed to be uploaded -->
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
