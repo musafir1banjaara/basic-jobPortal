@@ -18,7 +18,7 @@ def create_job(request):
             logo=request.FILES.get("logo"),
         )
         return redirect("/")
-    return render(request, "addform.html")
+    return render(request, "jobform.html")
 
 
 def delete_job(request, id):
@@ -26,3 +26,20 @@ def delete_job(request, id):
         job = Job.objects.get(id=id)
         job.delete()
     return redirect('/')
+
+
+def update_job(request, id):
+    job = Job.objects.get(id=id)
+    if request.method == "POST":
+        job.title = request.POST.get("title")
+        job.description= request.POST.get("description")
+        job.company_name= request.POST.get("company_name")
+        job.location= request.POST.get("location")
+        job.salary= request.POST.get("salary")
+        logo = request.FILES.get("logo")
+        if logo:
+            job.logo = logo
+        job.save()
+        return redirect('/')
+    return render(request, "jobform.html", {"job":job})
+     

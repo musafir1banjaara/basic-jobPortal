@@ -12,31 +12,33 @@
         </div>
     </header>
     <main class="px-12 my-12 pb-12">
-        <form action="{% url 'create-job' %}" method="post" enctype="multipart/form-data" class="space-y-4">
+        <form action="{% if not job %} {% url 'create-job' %} {% else %} {% url 'update-job' job.id %} {% endif %}" 
+        method="post" enctype="multipart/form-data" class="space-y-4">
             {% csrf_token %}
             <div class="space-x-4">
                 <label for="title">Title</label>
-                <input type="text" id="title" name="title" class="input" />
+                <input type="text" id="title" name="title" class="input" value="{{job.title}}"/>
             </div>
             <div class="space-x-4">
                 <label for="description">Description</label>
-                <input type="text" id="description" name="description" class="input" />
+                <input type="text" id="description" name="description" class="input" value="{{job.description}}"/>
             </div>
             <div class="space-x-4">
                 <label for="company-name">Company Name</label>
-                <input type="text" id="company-name" name="company_name" class="input" />
+                <input type="text" id="company-name" name="company_name" class="input" value="{{job.company_name}}"/>
             </div>
             <div class="space-x-4">
                 <label for="location">Location</label>
-                <input type="text" id="location" name="location" class="input" />
+                <input type="text" id="location" name="location" class="input" value="{{job.location}}"/>
             </div>
             <div class="space-x-4">
                 <label for="salary">Salary</label>
-                <input type="number" id="salary" name="salary" class="input" />
+                <input type="number" id="salary" name="salary" class="input" value="{{job.salary}}"/>
             </div>
             <div class="space-x-4">
                 <label for="logo">Logo</label>
-                <input type="file" accept=".png" id="logo" name="logo" class="file-input" />
+                <p>{{job.logo.url}}</p>
+                <input type="file" accept=".png" id="logo" name="logo" class="file-input" value="{{job.logo.url}}"/>
                 <!-- accept restricts what extension of file is allowed to be uploaded -->
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
