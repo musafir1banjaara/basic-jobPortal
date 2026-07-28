@@ -7,16 +7,18 @@
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
             <a href={% url 'home' %} class="text-xl font-bold text-slate-900 flex items-center gap-2">
                 <span class="material-icons-outlined text-indigo-600">work</span>
-                LakshyaIn
+                {{site_name}}
             </a>
             {% if request.user.is_authenticated %}
             <a href={% url 'create-job' %} id="addJobBtn"
                 class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors flex items-center gap-1.5">
                 <span class="material-icons-outlined text-sm leading-none">add</span>
-                Add Job
+                Add Job {{job_count}}
             </a>
             <a href="{% url 'logout-user' %}">
                 <button class="btn btn-outline btn-error">Log Out</button>
+                <span>{{ request.user.username }}</span>
+                <!-- built-in context processor -->
             </a>
             {% else %}
             <div class="flex justify-end gap-2">
