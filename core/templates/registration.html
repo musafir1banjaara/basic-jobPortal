@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href={% url 'home' %} class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                <span class="material-icons-outlined text-indigo-600">work</span>
+                LakshyaIn
+            </a>
+            <a href="{% url 'login-user' %}">
+                <button class="btn btn-outline btn-success">Login</button>
+            </a>
+        </div>
+</header>
+<div class="p-8">
+    <form action="{% url 'register-user' %}" method="POST">
+        {% csrf_token %}
+        <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+            <legend class="fieldset-legend">Registration Form</legend>
+
+            <label class="label">Username</label>
+            <input type="text" name="username" class="input" placeholder="musafir1banjaara" />
+
+            <label class="label">Password</label>
+            <input type="password" name="password" class="input" />
+
+            <button type="submit" class="btn btn-secondary">Register</button>
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}
