@@ -48,9 +48,11 @@
                 </figure>
 
                 <div class="card-body">
-                    <h2 class="card-title">{{ job.title }}</h2>
-                    <p>{{ job.description }}</p>
-
+                    <h2 class="card-title">Title : {{ job.title }}</h2>
+                    <p> Description : {{ job.description }}</p>
+                    <p> Company Name : {{ job.company_name }}</p>
+                    <p> Location : {{ job.location}}</p>                  
+                    <p> Salary : {{ job.salary }}</p>
                     <div class="card-actions justify-end">
                         <a href="{% url 'update-job' job.id %}" class="btn btn-primary">Edit</a>
                         <form action="{% url 'delete-job' job.id %}" method="post">

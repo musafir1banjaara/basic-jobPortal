@@ -8,8 +8,8 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    jobs = Job.objects.all()
-    return render(request, "index.html", {"jobs":jobs})
+    queryset = Job.objects.all()
+    return render(request, "index.html", {"jobs":queryset})
 
 @login_required
 def create_job(request):
